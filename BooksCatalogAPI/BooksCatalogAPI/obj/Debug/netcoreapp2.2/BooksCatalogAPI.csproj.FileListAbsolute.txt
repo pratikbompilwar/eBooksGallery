@@ -11,3 +11,4 @@ C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj
 C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.RazorTargetAssemblyInfo.cache
 C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.dll
 C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.pdb
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.csprojAssemblyReference.cache

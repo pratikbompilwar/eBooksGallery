@@ -10,7 +10,9 @@ namespace BooksCatalogAPI.Models
 {
     public class Book
     {
-        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
+         [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
+       // [BsonId]
+        //[BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         [BsonElement("title")]
@@ -27,6 +29,9 @@ namespace BooksCatalogAPI.Models
 
         [BsonElement("price")]
         public double Price { get; set; }
+
+        [BsonElement("quantity")]
+        public int Quantity { get; set; }
 
         [BsonElement("language")]
         public string Language { get; set; }

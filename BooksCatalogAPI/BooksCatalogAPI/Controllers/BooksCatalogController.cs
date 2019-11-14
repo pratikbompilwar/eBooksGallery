@@ -33,6 +33,20 @@ namespace BooksCatalogAPI.Controllers
         {
             var result = await this.dbContext.BooksCatalog.FindAsync<Book>(FilterDefinition<Book>.Empty);
             return result.ToList();
+            //var result = (await this.dbContext.BooksCatalog.FindAsync<Book>(FilterDefinition<Book>.Empty)).ToList();
+            //return result;
+        }
+
+        [HttpPost("book", Name = "AddBook")]
+        public ActionResult<Book> AddBook()
+        {            
+
+            var book = new Book()
+            {
+                Title = "MyBook"                
+            };
+            dbContext.BooksCatalog.InsertOne(book);  // saving to mongo            
+            return book;
         }
     }
 }
