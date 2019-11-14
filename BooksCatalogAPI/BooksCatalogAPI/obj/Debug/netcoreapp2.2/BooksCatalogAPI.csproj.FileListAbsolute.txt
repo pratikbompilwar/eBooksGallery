@@ -1,0 +1,13 @@
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\bin\Debug\netcoreapp2.2\BooksCatalogAPI.deps.json
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\bin\Debug\netcoreapp2.2\BooksCatalogAPI.runtimeconfig.json
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\bin\Debug\netcoreapp2.2\BooksCatalogAPI.runtimeconfig.dev.json
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\bin\Debug\netcoreapp2.2\BooksCatalogAPI.dll
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\bin\Debug\netcoreapp2.2\BooksCatalogAPI.pdb
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.csproj.CoreCompileInputs.cache
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.RazorAssemblyInfo.cache
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.RazorAssemblyInfo.cs
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.AssemblyInfoInputs.cache
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.AssemblyInfo.cs
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.RazorTargetAssemblyInfo.cache
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.dll
+C:\Users\r1m1nrao\source\repos\eBooksGallery\BooksCatalogAPI\BooksCatalogAPI\obj\Debug\netcoreapp2.2\BooksCatalogAPI.pdb
