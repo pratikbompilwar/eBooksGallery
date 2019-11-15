@@ -42,30 +42,30 @@ namespace BooksCatalogAPI.Controllers
         [HttpPost("addbook", Name = "AddBook")]
         public ActionResult<Book> AddBook()
         {
-            // var coverImageName = SaveImageToCloudAsync(Request.Form.Files[0]).GetAwaiter().GetResult();
-
-            //var book = new Book()
-            //{
-            //    Title = Request.Form["title"],               
-            //   SubTitle = Request.Form["subTitle"],
-            //   Author= Request.Form["author"],
-            //   Description= Request.Form["description"],
-            //   Price= Double.Parse(Request.Form["price"]),
-            //   Quantity = Int32.Parse(Request.Form["quantity"]),
-            //   Language= Request.Form["language"],
-            //   CoverImageUrl= coverImageName,
-            //   CreatedDate= DateTime.Parse(Request.Form["createdDate"]),
-            //   UpdatedDate= DateTime.Parse(Request.Form["updatedDate"]),
-            //   isFree= Boolean.Parse(Request.Form["isFree"]),
-            //   isAvailable= Boolean.Parse(Request.Form["isAvailable"]),
-            //   Status= Request.Form["status"],
-            //   BookLocationPath= Request.Form["bookLocationPath"]
-            //};
+            var coverImageName = SaveImageToCloudAsync(Request.Form.Files[0]).GetAwaiter().GetResult();
 
             var book = new Book()
             {
-                Title = "MyBooks"
+                Title = Request.Form["title"],
+                SubTitle = Request.Form["subTitle"],
+                Author = Request.Form["author"],
+                Description = Request.Form["description"],
+                Price = Double.Parse(Request.Form["price"]),
+                Quantity = Int32.Parse(Request.Form["quantity"]),
+                Language = Request.Form["language"],
+                CoverImageUrl = coverImageName,
+                CreatedDate = DateTime.Now.Date,
+                UpdatedDate = DateTime.Now.Date,
+                isFree = Boolean.Parse(Request.Form["isFree"]),
+                isAvailable = true,
+                Status = "Active",
+                BookLocationPath = Request.Form["bookLocationPath"]
             };
+
+            //var book = new Book()
+            //{
+            //    Title = "MyBooks"
+            //};
             dbContext.BooksCatalog.InsertOne(book);  // saving to mongo            
             return book;
         }
@@ -73,11 +73,22 @@ namespace BooksCatalogAPI.Controllers
         [HttpPost("updatebook", Name = "UpdateBook")]
         public ActionResult<Book> UpdateBook()
         {
-            var coverImageName = SaveImageToCloudAsync(Request.Form.Files[0]).GetAwaiter().GetResult();
+            var coverImageName = string.Empty;
+            if (Request.Form.Files.Count > 0)
+            {
+                coverImageName = SaveImageToCloudAsync(Request.Form.Files[0]).GetAwaiter().GetResult();
+            }
+            else
+            {
+                coverImageName = Request.Form["coverImageUrl"];
+            }
 
             FilterDefinition<Book> filter = "{ Id:"+ Request.Form["id"] + " }";
 
-            //UpdateDefinition<BsonDocument> update = "{ $set: { x: 1 } }";
+           // UpdateDefinition<Book> update = "{ $set: { x: 1 } }";
+
+
+          // var update = Builders<Book>.Update.Set(x => x.Title ,Request.Form["title"]);
 
             var bookId = Request.Form["id"];
 
@@ -90,16 +101,18 @@ namespace BooksCatalogAPI.Controllers
                 Price = Double.Parse(Request.Form["price"]),
                 Quantity = Int32.Parse(Request.Form["quantity"]),
                 Language = Request.Form["language"],
-                CoverImageUrl = coverImageName,
-                CreatedDate = DateTime.Parse(Request.Form["createdDate"]),
-                UpdatedDate = DateTime.Parse(Request.Form["updatedDate"]),
+                CoverImageUrl = coverImageName,               
+                UpdatedDate = DateTime.Now,
                 isFree = Boolean.Parse(Request.Form["isFree"]),
-                isAvailable = Boolean.Parse(Request.Form["isAvailable"]),
+                isAvailable = true,
                 Status = Request.Form["status"],
                 BookLocationPath = Request.Form["bookLocationPath"]
             };
-            //dbContext.BooksCatalog.UpdateOne(filter, book);  // saving to mongo     
-            dbContext.BooksCatalog.ReplaceOne(x=>x.Id== bookId,book);
+            // dbContext.BooksCatalog.UpdateOne(filter, update);  // saving to mongo     
+            //dbContext.BooksCatalog.ReplaceOne(x=>x.Id== bookId,book);
+            dbContext.BooksCatalog.DeleteOne(x => x.Id == bookId);
+            dbContext.BooksCatalog.InsertOne(book);
+            //var result = dbContext.BooksCatalog.ReplaceOne(x => x.Id == bookId, book);
             return book;
         }
 
@@ -138,29 +151,34 @@ namespace BooksCatalogAPI.Controllers
 
         [AllowAnonymous]
         [HttpDelete("DeleteBook/{id}", Name = "DeleteById")]
-        public string DeleteById(string id)
-
+        public DeleteResult DeleteById(string id)
         {
 
             var result = this.dbContext.BooksCatalog.DeleteOne(book => book.Id == id);
-
-            if (result.DeletedCount > 0)
-
-            {
-
-                return "Deleted";
-
-            }
-
-            else
-
-            {
-
-                return "";
-
-            }
-
+            return result;           
         }
+
+        //[AllowAnonymous]
+        //[HttpGet("Search/{keyword}", Name = "SearchBooks")]
+        //public async Task<ActionResult<List<Book>>> SearchBooks(string keyword)
+        //{
+        //    try
+        //    {
+        //        IMongoCollection<Book> collection = this.dbContext.BooksCatalog as IMongoCollection<Book>;
+        //        var result = await collection.FindAsync(
+        //            book => book.Title.ToLower().Contains(keyword.ToLower())
+        //            || book.SubTitle.ToLower().Contains(keyword.ToLower())
+        //            || book.Author.ToLower().Contains(keyword.ToLower())
+        //            || book.Language.ToLower().Contains(keyword.ToLower())
+        //            );
+        //        return result.ToList();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+
 
         [NonAction]
         private async Task<string> SaveImageToCloudAsync(IFormFile image)

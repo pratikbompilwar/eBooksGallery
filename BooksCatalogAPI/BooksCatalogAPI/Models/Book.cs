@@ -11,8 +11,9 @@ namespace BooksCatalogAPI.Models
     public class Book
     {
          [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
-       // [BsonId]
+        // [BsonId]
         //[BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("_id")]
         public string Id { get; set; }
 
         [BsonElement("title")]
