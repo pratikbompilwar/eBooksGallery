@@ -5,16 +5,16 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { AddBooksComponent } from './components/add-books/add-books.component';
-import { EditBookComponent } from './components/edit-book/edit-book.component';
+import { HomeComponent, AddBooksComponent, EditBookComponent, LoginComponent, RegisterComponent } from './components';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AddBooksComponent,
-    EditBookComponent
+    EditBookComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
