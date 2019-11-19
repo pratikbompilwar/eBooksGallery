@@ -31,5 +31,9 @@ export class BooksCatalogService {
   deleteBook(bookId :string):Observable<Book>{
     return this.http.delete<Book>(`${this.API_URL}/DeleteBook/`+ bookId);
    } 
+
+  searchBooks(keyword :string):Observable<Book[]>{
+    return this.http.get<Book[]>(`${this.API_URL}/Search/`+ keyword);
+   } 
   
 }

@@ -1,0 +1,13 @@
+a {
+    width: 100%;
+}
+.card{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.main-card :hover{
+    background-color:lightgray;
+}
+.btn:hover{
+background-color: green !important;
+}

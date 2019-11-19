@@ -7,9 +7,9 @@ import { EventResolverServiceService } from './resolvers/event-resolver-service.
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: "full" },
+  { path: 'home', component: HomeComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'books/add', component: AddBooksComponent },
   { path: 'editBook/:id', component: EditBookComponent, resolve: { item: EventResolverServiceService } }
 ];

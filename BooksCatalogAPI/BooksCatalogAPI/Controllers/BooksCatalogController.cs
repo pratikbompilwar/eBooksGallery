@@ -158,26 +158,26 @@ namespace BooksCatalogAPI.Controllers
             return result;           
         }
 
-        //[AllowAnonymous]
-        //[HttpGet("Search/{keyword}", Name = "SearchBooks")]
-        //public async Task<ActionResult<List<Book>>> SearchBooks(string keyword)
-        //{
-        //    try
-        //    {
-        //        IMongoCollection<Book> collection = this.dbContext.BooksCatalog as IMongoCollection<Book>;
-        //        var result = await collection.FindAsync(
-        //            book => book.Title.ToLower().Contains(keyword.ToLower())
-        //            || book.SubTitle.ToLower().Contains(keyword.ToLower())
-        //            || book.Author.ToLower().Contains(keyword.ToLower())
-        //            || book.Language.ToLower().Contains(keyword.ToLower())
-        //            );
-        //        return result.ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+        [AllowAnonymous]
+        [HttpGet("Search/{keyword}", Name = "SearchBooks")]
+        public async Task<ActionResult<List<Book>>> SearchBooks(string keyword)
+        {
+            try
+            {
+                IMongoCollection<Book> collection = this.dbContext.BooksCatalog as IMongoCollection<Book>;
+                var result = await collection.FindAsync(
+                    book => book.Title.ToLower().Contains(keyword.ToLower())
+                    || book.SubTitle.ToLower().Contains(keyword.ToLower())
+                    || book.Author.ToLower().Contains(keyword.ToLower())
+                    || book.Language.ToLower().Contains(keyword.ToLower())
+                    );
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         [NonAction]
